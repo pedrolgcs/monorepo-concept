@@ -10,15 +10,15 @@
     "package.json"
   ],
   "exports": {
-    "./package.json": "./package.json",
-    "./tailwind": "./tailwind.config.js",
-    "./postcss": "./postcss.config.js",
-    "./style": "./styles/styles.css",
     ".": {
       "import": "./dist/index.js",
       "module": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
+    "./package.json": "./package.json",
+    "./tailwind": "./tailwind.config.js",
+    "./postcss": "./postcss.config.js",
+    "./global-styles": "./dist/styles/global.css",
     "./alert": {
       "import": "./dist/components/alert/alert.js",
       "module": "./dist/components/alert/alert.mjs",
@@ -86,7 +86,6 @@
     "lint": "eslint src/**/*.ts* --fix"
   },
   "dependencies": {
-    "react": "^18.2.0",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -99,6 +98,7 @@
     "date-fns": "^3.6.0",
     "lucide-react": "^0.363.0",
     "next-themes": "^0.3.0",
+    "react": "^18.2.0",
     "react-day-picker": "^8.10.0",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
@@ -107,6 +107,7 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@types/node": "^20",
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "autoprefixer": "^10.4.19",
