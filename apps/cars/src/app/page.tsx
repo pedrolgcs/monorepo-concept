@@ -1,4 +1,4 @@
-import {Alert} from '@repo/ui/alert'
+import {Alert} from '@repo/ui/'
 
 export default function Home() {
   return (

@@ -1,6 +1,10 @@
 export default {
   entryPoints: [
     'src/index.ts',
+    'src/styles/index.ts',
+    'src/styles/postcss.config.js',
+    'src/styles/tailwind.config.js',
+    'src/styles/index.ts',
     'src/components/alert/alert.tsx',
     'src/components/badge/badge.tsx',
     'src/components/button/button.tsx',

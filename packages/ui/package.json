@@ -11,6 +11,9 @@
   ],
   "exports": {
     "./package.json": "./package.json",
+    "./tailwind": "./tailwind.config.js",
+    "./postcss": "./postcss.config.js",
+    "./style": "./styles/styles.css",
     ".": {
       "import": "./dist/index.js",
       "module": "./dist/index.mjs",
