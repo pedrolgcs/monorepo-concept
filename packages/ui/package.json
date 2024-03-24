@@ -10,15 +10,10 @@
     "package.json"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "module": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./package.json": "./package.json",
-    "./tailwind": "./tailwind.config.js",
-    "./postcss": "./postcss.config.js",
-    "./global-styles": "./dist/styles/global.css",
+    "./tailwind.config.js": "./tailwind.config.js",
+    "./postcss.config.js": "./postcss.config.js",
+    "./styles.css": "./dist/styles/global.css",
+    "./components": "",
     "./alert": {
       "import": "./dist/components/alert/alert.js",
       "module": "./dist/components/alert/alert.mjs",

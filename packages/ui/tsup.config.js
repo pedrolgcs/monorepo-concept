@@ -1,7 +1,7 @@
 export default {
   entryPoints: [
-    'src/index.ts',
     'src/styles/global.ts',
+    'src/components/index.ts',
     'src/components/alert/alert.tsx',
     'src/components/badge/badge.tsx',
     'src/components/button/button.tsx',
