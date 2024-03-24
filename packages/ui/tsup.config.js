@@ -1,20 +1,19 @@
 export default {
   entryPoints: [
     'src/styles/global.ts',
-    'src/components/index.ts',
-    'src/components/alert/alert.tsx',
-    'src/components/badge/badge.tsx',
-    'src/components/button/button.tsx',
-    'src/components/calendar/calendar.tsx',
-    'src/components/checkbox/checkbox.tsx',
-    'src/components/collapsible/collapsible.tsx',
-    'src/components/dialog/dialog.tsx',
-    'src/components/input/input.tsx',
-    'src/components/label/label.tsx',
-    'src/components/select/select.tsx',
-    'src/components/skeleton/skeleton.tsx',
-    'src/components/sonner/sonner.tsx',
-    'src/components/tooltip/tooltip.tsx',
+    'src/components/alert/index.ts',
+    'src/components/badge/index.ts',
+    'src/components/button/index.ts',
+    'src/components/calendar/index.ts',
+    'src/components/checkbox/index.ts',
+    'src/components/collapsible/index.ts',
+    'src/components/dialog/index.ts',
+    'src/components/input/index.ts',
+    'src/components/label/index.ts',
+    'src/components/select/index.ts',
+    'src/components/skeleton/index.ts',
+    'src/components/sonner/index.ts',
+    'src/components/tooltip/index.ts',
   ], // Pontos de entrada do seu projeto
   format: ['cjs', 'esm'], // Formatos de saída desejados (CommonJS e ES Module)
   splitting: true, // Habilita a geração de múltiplos arquivos de saída

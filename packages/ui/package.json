@@ -13,66 +13,10 @@
     "./tailwind.config.js": "./tailwind.config.js",
     "./postcss.config.js": "./postcss.config.js",
     "./styles.css": "./dist/styles/global.css",
-    "./components": "",
-    "./alert": {
-      "import": "./dist/components/alert/alert.js",
-      "module": "./dist/components/alert/alert.mjs",
-      "types": "./dist/components/alert/alert.d.ts"
-    },
-    "./badge": {
-      "import": "./dist/components/badge/badge.js",
-      "module": "./dist/components/badge/badge.mjs",
-      "types": "./dist/components/badge/badge.d.ts"
-    },
-    "./button": {
-      "import": "./dist/components/button/button.js",
-      "module": "./dist/components/button/button.mjs",
-      "types": "./dist/components/button/button.d.ts"
-    },
-    "./checkbox": {
-      "import": "./dist/components/checkbox/checkbox.js",
-      "module": "./dist/components/checkbox/checkbox.mjs",
-      "types": "./dist/components/checkbox/checkbox.d.ts"
-    },
-    "./collapsible": {
-      "import": "./dist/components/collapsible/collapsible.js",
-      "module": "./dist/components/collapsible/collapsible.mjs",
-      "types": "./dist/components/collapsible/collapsible.d.ts"
-    },
-    "./dialog": {
-      "import": "./dist/components/dialog/dialog.js",
-      "module": "./dist/components/dialog/dialog.mjs",
-      "types": "./dist/components/dialog/dialog.d.ts"
-    },
-    "./label": {
-      "import": "./dist/components/label/label.js",
-      "module": "./dist/components/label/label.mjs",
-      "types": "./dist/components/label/label.d.ts"
-    },
-    "./select": {
-      "import": "./dist/components/select/select.js",
-      "module": "./dist/components/select/select.mjs",
-      "types": "./dist/components/select/select.d.ts"
-    },
-    "./skeleton": {
-      "import": "./dist/components/skeleton/skeleton.js",
-      "module": "./dist/components/skeleton/skeleton.mjs",
-      "types": "./dist/components/skeleton/skeleton.d.ts"
-    },
-    "./sonner": {
-      "import": "./dist/components/sonner/sonner.js",
-      "module": "./dist/components/sonner/sonner.mjs",
-      "types": "./dist/components/sonner/sonner.d.ts"
-    },
-    "./tooltip": {
-      "import": "./dist/components/tooltip/tooltip.js",
-      "module": "./dist/components/tooltip/tooltip.mjs",
-      "types": "./dist/components/tooltip/tooltip.d.ts"
-    },
-    "./calendar": {
-      "import": "./dist/components/calendar/calendar.js",
-      "module": "./dist/components/calendar/calendar.mjs",
-      "types": "./dist/components/calendar/calendar.d.ts"
+    "./components/*": {
+      "import": "./dist/components/*/index.js",
+      "module": "./dist/components/*/index.mjs",
+      "types": "./dist/components/*/index.d.ts"
     }
   },
   "scripts": {
