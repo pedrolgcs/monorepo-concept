@@ -13,6 +13,11 @@
     "./tailwind.config.js": "./tailwind.config.js",
     "./postcss.config.js": "./postcss.config.js",
     "./styles.css": "./dist/styles/global.css",
+    "./context/*": {
+      "import": "./dist/context/*/index.js",
+      "module": "./dist/context/*/index.mjs",
+      "types": "./dist/context/*/index.d.ts"
+    },
     "./components/*": {
       "import": "./dist/components/*/index.js",
       "module": "./dist/components/*/index.mjs",
@@ -53,6 +58,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
     "tsup": "^6.7.0",
+    "tw-colors": "^3.3.1",
     "typescript": "^5.4.3"
   }
 }
