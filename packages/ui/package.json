@@ -22,7 +22,8 @@
       "import": "./dist/components/*/index.js",
       "module": "./dist/components/*/index.mjs",
       "types": "./dist/components/*/index.d.ts"
-    }
+    },
+    "./themes/*": "./src/styles/themes/*"
   },
   "scripts": {
     "build": "tsup",

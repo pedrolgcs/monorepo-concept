@@ -1,0 +1,37 @@
+{
+  "colors": {
+    "border": "#D3D3D3",
+    "input": "#D3D3D3",
+    "ring": "#FFFFFF",
+    "background": "#FFFFFF",
+    "foreground": "#FFD700",
+    "primary": {
+      "DEFAULT": "#FFD700",
+      "foreground": "#FFFFFF"
+    },
+    "secondary": {
+      "DEFAULT": "#004080",
+      "foreground": "#FFFFFF"
+    },
+    "destructive": {
+      "DEFAULT": "#B22222",
+      "foreground": "#FFFFFF"
+    },
+    "muted": {
+      "DEFAULT": "#FFD700",
+      "foreground": "#FFA500"
+    },
+    "accent": {
+      "DEFAULT": "#FFD700",
+      "foreground": "#004080"
+    },
+    "popover": {
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#FFD700"
+    },
+    "card": {
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#FFD700"
+    }
+  }
+}
