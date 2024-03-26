@@ -2,7 +2,7 @@
 
 import { useTheme } from '@repo/ui/context/theme-provider'
 
-export function GlobalTheme({
+export function Theme({
   children,
 }: Readonly<{
   children: React.ReactNode

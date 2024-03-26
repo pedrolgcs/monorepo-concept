@@ -4,8 +4,8 @@ import '@repo/ui/styles.css'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import { GlobalProvider } from './global-provider'
-import { GlobalTheme } from './global-theme'
+import { Providers } from './providers'
+import { Theme } from './theme'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <GlobalProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <GlobalTheme>{children}</GlobalTheme>
-        </body>
-      </html>
-    </GlobalProvider>
+    <html lang="pt-BR">
+      <body className={inter.className}>
+        <Providers>
+          <Theme>{children}</Theme>
+        </Providers>
+      </body>
+    </html>
   )
 }

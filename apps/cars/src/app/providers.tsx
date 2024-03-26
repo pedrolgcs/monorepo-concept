@@ -2,10 +2,10 @@
 
 import { ThemeProvider } from '@repo/ui/context/theme-provider'
 
-type GlobalProvidersProps = {
+type ProvidersProps = {
   children: React.ReactNode
 }
 
-export function GlobalProvider({ children }: GlobalProvidersProps) {
+export function Providers({ children }: ProvidersProps) {
   return <ThemeProvider>{children}</ThemeProvider>
 }
