@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'cvc' | 'submarino'
+type Theme = 'cvc' | 'submarino' | 'shadcn'
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -26,19 +26,21 @@ export function ThemeProvider({
   storageKey = 'app-ui-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  )
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return defaultTheme
+    return (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  })
 
   useEffect(() => {
     const root = window.document.documentElement
-    root.classList.remove('cvc', 'submarino')
+    root.classList.remove('cvc', 'submarino', 'shadcn')
     root.classList.add(theme)
   }, [theme])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
+      if (typeof window === 'undefined') return
       localStorage.setItem(storageKey, theme)
       setTheme(theme)
     },
