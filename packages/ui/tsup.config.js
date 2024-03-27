@@ -17,6 +17,7 @@ export default {
     'src/components/tooltip/index.ts',
     'src/components/separator/index.ts',
     'src/components/dropdown-menu/index.ts',
+    'src/components/navigation-menu/index.ts',
   ], // Pontos de entrada do seu projeto
   format: ['cjs', 'esm'], // Formatos de saída desejados (CommonJS e ES Module)
   splitting: true, // Habilita a geração de múltiplos arquivos de saída
