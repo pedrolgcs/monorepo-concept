@@ -1,9 +1,9 @@
-import { Badge } from '@repo/ui/components/badge'
+import { Header } from '@/features/Header'
 
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-slate-50">
-      <Badge variant="default">Hello</Badge>
+      <Header />
     </main>
   )
 }

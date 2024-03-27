@@ -7,5 +7,5 @@ type ProvidersProps = {
 }
 
 export function Providers({ children }: ProvidersProps) {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return <ThemeProvider defaultTheme="shadcn">{children}</ThemeProvider>
 }
