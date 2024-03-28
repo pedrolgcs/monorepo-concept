@@ -33,7 +33,13 @@ export function Navigation({ children }: NavigationProps) {
     <div className="flex w-full flex-col border border-slate-200">
       <div className="mx-auto flex w-full max-w-7xl justify-between py-6">
         <div className="flex items-center gap-4">
-          <Image src="/cvc-logo.png" width={80} height={80} alt="CVC" />
+          <Image
+            priority
+            src="/cvc-logo.png"
+            width={80}
+            height={80}
+            alt="CVC"
+          />
 
           <Menu.NavigationMenu>
             <Menu.NavigationMenuList>
