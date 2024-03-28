@@ -131,8 +131,8 @@ export function Navigation({ children }: NavigationProps) {
           <div className="flex flex-col gap-3">
             <Label>Filial 1002</Label>
             <Label>Olá, Pedro Henrique Lopes Galvão</Label>
-            <Button size="sm" className="w-min gap-2">
-              <LogOut />
+            <Button size="sm" variant="destructive" className="w-min gap-2">
+              <LogOut className="size-4" />
               Sair
             </Button>
           </div>
@@ -141,7 +141,7 @@ export function Navigation({ children }: NavigationProps) {
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl pb-6">{children}</div>
+      <div className="mx-auto flex w-full max-w-7xl py-6">{children}</div>
     </div>
   )
 }
