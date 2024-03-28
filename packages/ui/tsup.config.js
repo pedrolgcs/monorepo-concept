@@ -20,6 +20,7 @@ export default {
     'src/components/navigation-menu/index.ts',
     'src/components/popover/index.ts',
     'src/components/form/index.ts',
+    'src/components/slider/index.ts',
   ], // Pontos de entrada do seu projeto
   format: ['cjs', 'esm'], // Formatos de saída desejados (CommonJS e ES Module)
   splitting: true, // Habilita a geração de múltiplos arquivos de saída
