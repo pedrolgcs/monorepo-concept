@@ -18,50 +18,133 @@ import {
   SelectValue,
 } from '@repo/ui/components/select'
 import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+dayjs.extend(isBetween)
+
 const carsFiltersSchema = z.object({
-  pickUpLocation: z.string().min(1, { message: 'Selecione uma localidade' }),
-  dropOffLocation: z.string().optional(),
-  dateRange: z.object({
-    from: z.date(),
-    to: z.date(),
+  pickUpLocation: z.string({
+    required_error: 'Selecione um local de retirada',
   }),
-  startTime: z.string().min(1, { message: 'Selecione uma hora' }),
-  endTime: z.string().min(1, { message: 'Selecione uma hora' }),
+  dropOffLocation: z.string().optional(),
+  dateRange: z.object(
+    {
+      from: z.date(),
+      to: z.date(),
+    },
+    { required_error: 'Selecione uma data' },
+  ),
+  startTime: z.string({
+    required_error: 'Selecione um hora de partida',
+  }),
+  endTime: z.string({
+    required_error: 'Selecione um hora de chegada',
+  }),
 })
 
 type CarsFiltersSchema = z.infer<typeof carsFiltersSchema>
+
+const MIN_DAYS_RANGE = 2
 
 export function Filters() {
   const [deliveryInAnotherPlace, setDeliveryInAnotherPlace] =
     React.useState(false)
 
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const pickUpLocation = searchParams.get('pickUpLocation')
+  const dropOffLocation = searchParams.get('dropOffLocation')
+  const startDate = searchParams.get('startDate')
+  const endDate = searchParams.get('endDate')
+  const startTime = searchParams.get('startTime')
+  const endTime = searchParams.get('endTime')
+
+  const toDay = dayjs()
+  const maxDate = toDay.add(1, 'year')
+
   const {
-    watch,
     control,
+    reset,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<CarsFiltersSchema>({
     resolver: zodResolver(carsFiltersSchema),
     defaultValues: {
-      dateRange: {
-        from: undefined,
-        to: undefined,
-      },
+      pickUpLocation: pickUpLocation ?? undefined,
+      dropOffLocation: dropOffLocation ?? undefined,
+      dateRange:
+        startDate && endDate
+          ? {
+              from: new Date(startDate),
+              to: new Date(endDate),
+            }
+          : undefined,
+      startTime: startTime ?? undefined,
+      endTime: endTime ?? undefined,
     },
   })
 
-  const dateRange = watch('dateRange')
-
   const handleFilterCars = (data: CarsFiltersSchema) => {
-    console.log(data)
+    const { pickUpLocation, dropOffLocation, dateRange, startTime, endTime } =
+      data
+    const params = new URLSearchParams(searchParams)
+
+    params.set('pickUpLocation', pickUpLocation)
+    params.set('startDate', dateRange.from.toISOString())
+    params.set('endDate', dateRange.to.toISOString())
+    params.set('startTime', startTime)
+    params.set('endTime', endTime)
+    if (dropOffLocation) {
+      params.set('dropOffLocation', dropOffLocation)
+    } else {
+      params.delete('dropOffLocation')
+    }
+
+    router.replace(`${pathname}?${params.toString()}`)
   }
 
-  const toDay = dayjs()
-  const maxDate = toDay.add(1, 'year')
+  React.useEffect(() => {
+    if (dropOffLocation) setDeliveryInAnotherPlace(true)
+  }, [dropOffLocation])
+
+  React.useEffect(() => {
+    if (!startDate || !endDate) return
+
+    const dateStartIsBetweenValidDates = dayjs(startDate).isBetween(
+      toDay,
+      maxDate,
+      'day',
+      '[]',
+    )
+
+    const dateEndIsBetweenValidDates = dayjs(endDate).isBetween(
+      toDay.add(MIN_DAYS_RANGE - 1, 'day'),
+      maxDate,
+      'day',
+      '[]',
+    )
+
+    if (!dateStartIsBetweenValidDates || !dateEndIsBetweenValidDates) {
+      reset({
+        dateRange: {
+          from: undefined,
+          to: undefined,
+        },
+      })
+
+      setError('dateRange', {
+        type: 'invalid_dates',
+        message: 'Período de datas inválido',
+      })
+    }
+  }, [])
 
   return (
     <div className="flex w-full flex-col gap-3">
@@ -142,10 +225,10 @@ export function Filters() {
               <Popover>
                 <PopoverTrigger asChild>
                   <Button variant="outline">
-                    {dateRange.from && dateRange.to ? (
+                    {field?.value?.from && field?.value?.to ? (
                       <span className="flex">
-                        {dayjs(dateRange.from).format('DD/MM/YYYY')} -{' '}
-                        {dayjs(dateRange.to).format('DD/MM/YYYY')}
+                        {dayjs(field.value.from).format('DD/MM/YYYY')} -{' '}
+                        {dayjs(field.value.to).format('DD/MM/YYYY')}
                       </span>
                     ) : (
                       <span>Escolha a data</span>
@@ -155,10 +238,10 @@ export function Filters() {
                 <PopoverContent className="w-auto p-0">
                   <Calendar
                     mode="range"
-                    selected={dateRange}
+                    selected={{ from: field.value?.from, to: field.value?.to }}
                     numberOfMonths={2}
                     disabled={{ before: new Date() }}
-                    min={3}
+                    min={MIN_DAYS_RANGE}
                     onSelect={field.onChange}
                     fromMonth={toDay.toDate()}
                     toDate={maxDate.toDate()}
@@ -166,7 +249,7 @@ export function Filters() {
                 </PopoverContent>
               </Popover>
               <span className="text-xs leading-tight text-rose-400">
-                {errors.dateRange?.to?.message}
+                {errors.dateRange?.message}
               </span>
             </div>
           )}
