@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@repo/eslint-config": "workspace:^",
     "@repo/ui": "workspace:^",
     "date-fns": "^3.6.0",
