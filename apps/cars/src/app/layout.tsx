@@ -4,6 +4,8 @@ import '@repo/ui/styles.css'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { Header } from '@/features/header'
+
 import { Providers } from './providers'
 import { Theme } from './theme'
 
@@ -23,7 +25,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <Providers>
-          <Theme>{children}</Theme>
+          <Theme>
+            <Header />
+            {children}
+          </Theme>
         </Providers>
       </body>
     </html>
