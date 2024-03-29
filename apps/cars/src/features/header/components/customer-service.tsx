@@ -2,7 +2,6 @@
 
 import { Button } from '@repo/ui/components/button'
 import * as Dropdown from '@repo/ui/components/dropdown-menu'
-import { Label } from '@repo/ui/components/label'
 import { Separator } from '@repo/ui/components/separator'
 import { Menu, Pencil, X } from 'lucide-react'
 
@@ -45,15 +44,15 @@ export function CustomerService() {
           </Button>
 
           <div className="flex items-center gap-1 text-primary-foreground">
-            <Label className="font-bold">Cliente:</Label>
-            <Label>Não identificado</Label>
+            <span className="font-bold">Cliente:</span>
+            <span>Não identificado</span>
           </div>
 
           <Separator orientation="vertical" className="h-5 bg-background" />
 
           <div className="flex items-center gap-1 text-primary-foreground">
-            <Label className="font-bold">Canal:</Label>
-            <Label>Não identificado</Label>
+            <span className="font-bold">Canal:</span>
+            <span>Não identificado</span>
           </div>
 
           <Button variant="outline" size="sm">

@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@repo/ui/components/button'
-import { Label } from '@repo/ui/components/label'
 import * as Menu from '@repo/ui/components/navigation-menu'
 import {
   Briefcase,
@@ -134,20 +133,24 @@ export function Navigation({ children }: NavigationProps) {
         </div>
 
         <div className="flex items-center justify-start gap-6">
-          <div className="flex flex-col gap-3">
-            <Label>Filial 1002</Label>
-            <Label>Olá, Pedro Henrique Lopes Galvão</Label>
+          <div className="flex flex-col gap-1">
+            <span className="text-sm font-medium leading-none text-slate-600">
+              Filial 1002
+            </span>
+            <span className="text-base font-semibold">
+              Olá, Pedro Henrique Lopes Galvão
+            </span>
             <Button size="sm" variant="destructive" className="w-min gap-2">
               <LogOut className="size-4" />
               Sair
             </Button>
           </div>
 
-          <ShoppingBag className="size-7 stroke-primary" />
+          <ShoppingBag className="size-7 stroke-slate-600" />
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-7xl py-6">{children}</div>
+      <div className="mx-auto flex w-full max-w-7xl py-3">{children}</div>
     </div>
   )
 }
