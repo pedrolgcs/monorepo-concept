@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+import { createThemes } from 'tw-colors'
+
 import cvcTheme from './src/styles/themes/cvc.json'
 import shadcnTheme from './src/styles/themes/shadcn.json'
 import submarinoTheme from './src/styles/themes/submarino.json'
-const { createThemes } = require('tw-colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,6 +12,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    '../../packages/ui/**/*.{ts,tsx}',
   ],
   prefix: '',
   theme: {

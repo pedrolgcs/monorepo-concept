@@ -1,3 +1,5 @@
+'use client'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@repo/ui/components/button'
 import { Calendar } from '@repo/ui/components/calendar'

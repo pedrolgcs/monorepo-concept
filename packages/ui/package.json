@@ -1,33 +1,15 @@
 {
   "name": "@repo/ui",
   "version": "1.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md",
-    "package.json"
-  ],
   "exports": {
     "./tailwind.config.js": "./tailwind.config.js",
     "./postcss.config.js": "./postcss.config.js",
-    "./styles.css": "./dist/styles/global.css",
-    "./context/*": {
-      "import": "./dist/context/*/index.js",
-      "module": "./dist/context/*/index.mjs",
-      "types": "./dist/context/*/index.d.ts"
-    },
-    "./components/*": {
-      "import": "./dist/components/*/index.js",
-      "module": "./dist/components/*/index.mjs",
-      "types": "./dist/components/*/index.d.ts"
-    },
+    "./styles.css": "./src/styles/styles.css",
+    "./context/*": "./src/context/*/index.ts",
+    "./components/*": "./src/components/*/index.ts",
     "./themes/*": "./src/styles/themes/*"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
     "lint": "eslint src/**/*.ts* --fix"
   },
   "dependencies": {
