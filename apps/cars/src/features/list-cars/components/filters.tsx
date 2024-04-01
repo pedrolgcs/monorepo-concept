@@ -105,7 +105,7 @@ const CATEGORIES = [
 
 export function Filters() {
   return (
-    <aside className="flex h-fit flex-col space-y-7 rounded-lg border border-slate-200 py-4">
+    <aside className="flex h-fit w-full flex-col space-y-7 rounded-lg border border-slate-200 py-4">
       <div className="flex w-full items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <SlidersHorizontal />
