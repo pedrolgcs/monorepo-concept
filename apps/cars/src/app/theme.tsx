@@ -1,5 +1,7 @@
 'use client'
 
+import '@repo/ui/styles.css'
+
 import { useTheme } from '@repo/ui/context/theme-provider'
 
 export function Theme({

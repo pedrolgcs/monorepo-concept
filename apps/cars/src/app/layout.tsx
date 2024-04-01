@@ -1,5 +1,3 @@
-import '@repo/ui/styles.css'
-
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
