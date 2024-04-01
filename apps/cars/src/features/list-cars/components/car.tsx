@@ -46,7 +46,9 @@ export function Car() {
                   className="size-auto"
                 />
                 <div className="flex items-center gap-1">
-                  <span className="text-sm font-semibold">R$ 228,00</span>
+                  <span className="text-sm font-semibold">
+                    R$ {Math.floor(Math.random() * (1000 - 200 + 1) + 200)}
+                  </span>
                   <span className="text-xs">por dia</span>
                 </div>
               </div>
@@ -154,7 +156,9 @@ export function Car() {
               <span className="line-through">R$ 258 por</span>
             </div>
 
-            <span className="text-xl font-bold text-slate-900">R$ 206,40</span>
+            <span className="text-xl font-bold text-slate-900">
+              R$ {Math.floor(Math.random() * (1000 - 200 + 1) + 200)}
+            </span>
           </div>
         </div>
 
