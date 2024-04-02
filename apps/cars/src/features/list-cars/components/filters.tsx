@@ -4,7 +4,10 @@ import { Button } from '@repo/ui/components/button'
 import { Checkbox } from '@repo/ui/components/checkbox'
 import { Label } from '@repo/ui/components/label'
 import { Slider } from '@repo/ui/components/slider'
+import { useSetAtom } from 'jotai'
 import { SlidersHorizontal } from 'lucide-react'
+
+import { FiltersAtom, filtersAtom } from '../context/filters'
 
 const CHARACTERISTICS_MOCK = [
   {
@@ -104,6 +107,23 @@ const CATEGORIES = [
 ] as const
 
 export function Filters() {
+  const setFilters = useSetAtom(filtersAtom)
+
+  const handleChangeChecked = (
+    key: keyof Omit<FiltersAtom, 'minPrice'>,
+    field: string,
+    checked: boolean | 'indeterminate',
+  ) => {
+    if (checked === 'indeterminate') return
+
+    setFilters((prev) => ({
+      ...prev,
+      [key]: {
+        [field]: checked,
+      },
+    }))
+  }
+
   return (
     <aside className="flex h-fit w-full flex-col space-y-7 rounded-lg border border-slate-200 py-4">
       <div className="flex w-full items-center justify-between px-4">
@@ -134,7 +154,16 @@ export function Filters() {
         <div className="flex flex-col gap-4 px-4">
           {CHARACTERISTICS_MOCK.map((characteristic) => (
             <div key={characteristic.id} className="flex gap-3">
-              <Checkbox id={characteristic.id} value={characteristic.id} />
+              <Checkbox
+                id={characteristic.id}
+                onCheckedChange={(value) =>
+                  handleChangeChecked(
+                    'characteristics',
+                    characteristic.id,
+                    value,
+                  )
+                }
+              />
               <Label htmlFor={characteristic.id} className="font-normal">
                 {characteristic.label}
               </Label>
@@ -151,7 +180,12 @@ export function Filters() {
         <div className="flex flex-col gap-4 px-4">
           {RENTAL_COMPANIES.map((compagnie) => (
             <div key={compagnie.id} className="flex gap-3">
-              <Checkbox id={compagnie.id} value={compagnie.id} />
+              <Checkbox
+                id={compagnie.id}
+                onCheckedChange={(value) =>
+                  handleChangeChecked('rentalCompanies', compagnie.id, value)
+                }
+              />
               <Label htmlFor={compagnie.id} className="font-normal">
                 {compagnie.label}
               </Label>
@@ -170,7 +204,12 @@ export function Filters() {
         <div className="flex flex-col gap-4 px-4">
           {CATEGORIES.map((category) => (
             <div key={category.id} className="flex gap-3">
-              <Checkbox id={category.id} value={category.id} />
+              <Checkbox
+                id={category.id}
+                onCheckedChange={(value) =>
+                  handleChangeChecked('categories', category.id, value)
+                }
+              />
               <Label htmlFor={category.id} className="font-normal">
                 {category.label}
               </Label>

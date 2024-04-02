@@ -1,3 +1,5 @@
+'use client'
+
 import { Alert, AlertDescription, AlertTitle } from '@repo/ui/components/alert'
 import { Button } from '@repo/ui/components/button'
 import { ArrowUpDown, OctagonAlert } from 'lucide-react'

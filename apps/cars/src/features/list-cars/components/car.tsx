@@ -22,6 +22,7 @@ export function Car() {
       <div className="flex flex-col gap-4">
         <Image
           src="/car.jpeg"
+          priority={false}
           width={200}
           height={200}
           alt="Onix"
